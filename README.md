@@ -20,7 +20,9 @@
 <li>Задача №3: Провести тестирование</li>
 <li>Задача №4: Написать отчет о результатах тестирования</li> 
 </ol>
-<p>Решение: <https://qabagreport.atlassian.net/l/cp/1kwZt4Ty> </p>
+<p>Решение: 
+<https://qabagreport.atlassian.net/l/cp/1kwZt4Ty> 
+</p>
 <p>Выводы (итоги):</p>
 <ol>
 <li>Итог №1: Тест-план успешно составлен</li>
