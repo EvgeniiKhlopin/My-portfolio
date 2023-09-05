@@ -22,7 +22,9 @@
 </ol>
 <p>Решение:</p>
 
-[Ссылка на проект](https://qabagreport.atlassian.net/l/cp/1kwZt4Ty) 
+>[Ссылка на проект](https://qabagreport.atlassian.net/l/cp/1kwZt4Ty)
+>Логин: evgenii.khlopin@gmail.com
+>Пароль: SkyPro1234!
 
 <p>Выводы (итоги):</p>
 <ol>
