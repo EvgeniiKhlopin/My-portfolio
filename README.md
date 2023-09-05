@@ -6,5 +6,5 @@
 ``Jira``,``PostgreSQL``,``qase.io``,``Chrome DevTools``,``Trello``,``SoapUI``,``Postman``
 ##Проекты
 
-##Контактная информация
+## Контактная информация
 Email: evgenii.khlopin.com
