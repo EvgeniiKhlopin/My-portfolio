@@ -7,4 +7,4 @@
 ##Проекты
 
 ## Контактная информация
-Email: evgenii.khlopin.com
+Email: evgenii.khlopin@gmail.com
