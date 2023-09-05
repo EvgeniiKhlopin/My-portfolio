@@ -22,7 +22,7 @@
 </ol>
 <p>Решение:</p>
 
-<https://qabagreport.atlassian.net/l/cp/1kwZt4Ty> 
+[Ссылка на проект](https://qabagreport.atlassian.net/l/cp/1kwZt4Ty) 
 
 <p>Выводы (итоги):</p>
 <ol>
