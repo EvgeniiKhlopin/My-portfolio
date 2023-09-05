@@ -7,4 +7,4 @@
 ##Проекты
 
 ##Контактная информация
-Email: jekaxlopin@gmail.com
+Email: evgenii.khlopin.com
