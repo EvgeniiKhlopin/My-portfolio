@@ -21,6 +21,8 @@
 <p>Решение:</p>
 
 >[Ссылка на проект](https://qabagreport.atlassian.net/l/cp/1kwZt4Ty)
+>
+>Файл в формате Word в аттаче
 
 <p>Выводы (итоги):</p>
 <ol>
