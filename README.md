@@ -53,4 +53,4 @@
 
 ## :mailbox: Контактная информация и методы связи со мной
 
-[![Gmail Badge](https://img.shields.io/badge/-Gmail-red?style=flat&logo=Gmail&logoColor=white)](evgenii.khlopin@gmail.com)
+[![Gmail Badge](https://img.shields.io/badge/-Gmail-red?style=flat&logo=Gmail&logoColor=white)](mailto:evgenii.khlopin@gmail.com)
