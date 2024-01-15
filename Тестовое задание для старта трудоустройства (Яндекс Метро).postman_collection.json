@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "48c382a4-7e72-411e-9837-1657fd903102",
+		"name": "Тестовое задание для старта трудоустройства (Яндекс Метро)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27648662"
+	},
+	"item": [
+		{
+			"name": "Создание Issue 1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Issue 1 успешно создан\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Issue 1\");\r",
+							"});\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"issueId\", jsonData.number);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mytoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json",
+						"type": "text"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Issue 1\",\r\n    \"body\": \"Something went wrong\",\r\n    \"labels\": [\r\n        \"bug\"\r\n    ],\r\n    \"assignees\": [\r\n        \"EvgeniiKhlopin\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basicURL}}/repos/{{owner}}/{{repo}}/issues",
+					"host": [
+						"{{basicURL}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение списка Issues",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Созданный Issue 1 найден в списке\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Issue 1\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mytoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json",
+						"type": "text"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{basicURL}}/repos/{{owner}}/{{repo}}/issues",
+					"host": [
+						"{{basicURL}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение названия на Issue 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Название Issue успешно изменено\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Issue 2\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mytoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json",
+						"type": "text"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Issue 2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basicURL}}/repos/{{owner}}/{{repo}}/issues/{{issueId}}",
+					"host": [
+						"{{basicURL}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"issues",
+						"{{issueId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение статуса Issue на \"Closed\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Статус изменен на Closed \", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"closed\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mytoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json",
+						"type": "text"
+					},
+					{
+						"key": "X-GitHub-Api-Version",
+						"value": "2022-11-28",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"state\": \"closed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basicURL}}/repos/{{owner}}/{{repo}}/issues/{{issueId}}",
+					"host": [
+						"{{basicURL}}"
+					],
+					"path": [
+						"repos",
+						"{{owner}}",
+						"{{repo}}",
+						"issues",
+						"{{issueId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{mytoken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "basicURL",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "owner",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "repo",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "mytoken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "issueId",
+			"value": ""
+		}
+	]
+}
